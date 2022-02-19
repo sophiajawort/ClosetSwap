@@ -1,38 +1,74 @@
-.App {
-  text-align: center;
+html {
+  font-size: 13px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@media only screen and (min-width: 400px) {
+  html {
+    font-size: 16px;
+  }
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media only screen and (min-width: 768px) {
+  html {
+    font-size: 19px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App{
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  background:#fdd7dd;
 }
 
-.App-link {
-  color: #61dafb;
+.header{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:4.5rem;
+    background:pink;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.title{
+  font-family: 'Fugaz One', cursive;
+  font-size:3rem;
+  color:rgb(85, 59, 40);
+}
+
+.welcome-text{
+  margin:2rem;
+  font-size:2rem;
+  font-family: 'Ubuntu', sans-serif;
+  color:rgb(85, 59, 40);
+
+}
+
+.footer{
+    height:4rem;
+    display:flex;
+    flex-direction:row;
+    justify-content: space-evenly;
+    align-items:center;
+    background:pink;
+}
+
+.footer button{
+  height:3rem;
+  width:3rem;
+  border-radius:70%;
+  background:white;
+  border-color: rgb(226, 109, 164);
+}
+
+.footer button:hover{
+  background:rgb(255, 149, 167);
+}
+
+button svg{
+  color:rgb(255, 149, 167);
+  height:1rem;
+  width:1rem;
+}
+
+button:hover svg{
+  color:white;
 }
