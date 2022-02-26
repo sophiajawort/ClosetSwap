@@ -28,18 +28,40 @@ html {
     background:pink;
 }
 
+.header-non-home{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  height:4.5rem;
+  background:pink;
+}
+
+.header-non-home .title{
+  margin-left:26.3rem;
+}
+
+.header-non-home button{
+  margin-left:2rem;
+}
+
 .title{
   font-family: 'Fugaz One', cursive;
   font-size:3rem;
   color:rgb(85, 59, 40);
 }
 
-.welcome-text{
+.main-body{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+}
+
+p{
   margin:2rem;
   font-size:2rem;
   font-family: 'Ubuntu', sans-serif;
   color:rgb(85, 59, 40);
-
 }
 
 .footer{
@@ -51,7 +73,7 @@ html {
     background:pink;
 }
 
-.footer button{
+button{
   height:3rem;
   width:3rem;
   border-radius:70%;
@@ -59,7 +81,7 @@ html {
   border-color: rgb(226, 109, 164);
 }
 
-.footer button:hover{
+button:hover{
   background:rgb(255, 149, 167);
 }
 
