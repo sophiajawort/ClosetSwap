@@ -94,3 +94,9 @@ button svg{
 button:hover svg{
   color:white;
 }
+
+.profile-information{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}

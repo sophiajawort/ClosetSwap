@@ -13,7 +13,7 @@ export default function CartPage(){
             <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Ubuntu:wght@300;400&display=swap" rel="stylesheet" />
           </head>
           <HeaderNonHome />
-          <div>On DA Cart Page</div>
+          <div>On the Cart Page</div>
           <FooterMenu />
         </ div>
     )

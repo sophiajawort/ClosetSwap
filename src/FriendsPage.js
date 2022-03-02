@@ -13,7 +13,7 @@ export default function FriendsPage(){
             <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Ubuntu:wght@300;400&display=swap" rel="stylesheet" />
           </head>
           <HeaderNonHome />
-          <div>On DA Friends Page</div>
+          <div>On the Friends Page</div>
           <FooterMenu />
         </ div>
     )
