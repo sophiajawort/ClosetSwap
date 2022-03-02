@@ -5,7 +5,8 @@ import FooterMenu from "./FooterMenu.jsx";
 import HomePage from "./HomePage.js";
 import ProfilePage from "./ProfilePage.js";
 import FriendsPage from "./FriendsPage.js";
-import CartPage from "./CartPage.js"
+import CartPage from "./CartPage.js";
+import { useDB, db } from "./db";
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 
 export default function Router() {
@@ -14,10 +15,11 @@ export default function Router() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/profile" element={<ProfilePage />}>
+          <Route path="/:username" element={<ProfilePage />} />
+        </Route>
         <Route path="/friends" element={<FriendsPage />} />
         <Route path="/cart" element={<CartPage />} />
-        <Route path="/:room" element={<App />} />
       </Routes>
     </BrowserRouter>
   );
