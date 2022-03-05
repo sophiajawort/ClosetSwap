@@ -3,40 +3,38 @@ import { FiEdit } from "react-icons/fi";
 
 // the component declaration
 // by convention, we name it with a capital first letter
-function NamePicker(props) {
+function UserBio(props) {
   // this is the state of the name itself
-  let [name, setName] = useState(props.initialName);
+  const [bio, setBio] = useState("");
   // this is a toggle between showing and hiding the input
   const [showInput, setShowInput] = useState(false);
 
   // you clicked ok!
   function ok() {
-    localStorage.setItem("name", name);
-    setName(name);
+    props.setBio(bio);
     setShowInput(false);
-    props.createUser(name);
   }
 
   if (showInput) {
     return (
-      <div className="name-picker">
+      <div className="user-bio">
         <input
-          className="name-picker-input"
-          onChange={(e) => setName(e.target.value)}
-          value={name}
+          className="bio-input"
+          onChange={(e) => setBio(e.target.value)}
+          value={bio}
         />
-        <button className="name-picker-button" onClick={ok}>
+        <button className="bio-submit-button" onClick={ok}>
           OK
         </button>
       </div>
     );
   }
   return (
-    <div className="name-picker">
-      <span className="name-picker-name">{name || "Set Username:"}</span>
+    <div className="user-bio">
+      <span className="user-bio-bio">{bio || "Write a few words about yourself and your style!"}</span>
       <FiEdit size="24" onClick={() => setShowInput(true)} />
     </div>
   );
 }
 
-export default NamePicker;
+export default UserBio;

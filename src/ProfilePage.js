@@ -4,32 +4,18 @@ import FooterMenu from "./FooterMenu.jsx";
 import HeaderNonHome from "./HeaderNonHome.js";
 import ProfilePicture from "./ProfilePicture.js";
 import NamePicker from "./NamePicker.js";
-import { useDB, db } from "./db";
-import Camera from 'react-snap-pic';
-import { useState } from "react";
+import UserBio from "./UserBio.js"
+import { useDB, db } from "./firebase.js"
+import { useParams, useNavigate } from "react-router-dom";
+import { BsGear } from "react-icons/bs";
+import { getStorage, ref } from "firebase/storage";
+
 
 export default function ProfilePage(){
-  const [showCamera, setShowCamera] = useState(false)
-  const [showInput, setShowInput] = useState(false);
+  const params = useParams();
+  const navigate = useNavigate();
+  const user = params.user || "home";
   const posts = useDB(user);
-  let [picture, setPicture] = useState()
-
-  function takePicture(img){
-    picture = setPicture(img)
-    console.log(picture)
-    setShowCamera(false)
-    setShowInput(true)
-  }
-
-  function createUser(username){
-    if (!username.trim()) return;
-    // we'll create a new User object
-    const newUser = {
-      time: Date.now(),
-      user: username,
-    };
-    db.send(newUser);
-  }
 
     return(
         <div className="App">
@@ -42,16 +28,24 @@ export default function ProfilePage(){
           {/* Creating Header with button to navigate home */}
           <HeaderNonHome />
           { /* Profile information will contain a profile picture, name, description, and posts */}
-          <div className="profile-information">
-            {/* profile pic, take new one or show old one */}
-            <ProfilePicture showCamera={()=>setShowCamera(true)}
-            setPicture= {setPicture}
-            initialPic={picture}
-            showInput ={showInput}/>
-            {showCamera && <Camera takePicture={takePicture} />}
-           {/* User name  */}
-           < NamePicker createUser={createUser}/>
-          </div>
+          <body className = 'main-body'>
+            {/* Button to navigate to change profile info */}
+            <button className='profile-settings' onClick={() => navigate('/profile-settings')}>
+              < BsGear />
+            </button>
+            <div className="profile-information">
+              {/* profile pic */}
+              < ProfilePicture />
+              {/* User name  */}
+              <NamePicker/>
+            </div>
+            {/* User Bio */}
+            < UserBio />
+            <div className='users-posts'>
+              Current Items:
+              Need to figure out how to use databases to add postssss
+            </div>
+          </body>
           <FooterMenu />
         </div>
     )

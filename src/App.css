@@ -53,8 +53,10 @@ html {
 .main-body{
   display:flex;
   flex-direction:column;
-  align-items:center;
+  align-items:flex-start;
   justify-content:flex-start;
+  height:30rem;
+  margin-left:4rem;
 }
 
 p{
@@ -97,6 +99,47 @@ button:hover svg{
 
 .profile-information{
   display:flex;
-  align-items:center;
-  justify-content:center;
+  align-items:flex-start;
+  justify-content:flex-start;
+  gap:3rem;
+  margin-top:1.7rem;
+  font-family: 'Ubuntu', sans-serif;
+  font-size:2rem;
+}
+
+.profile-pic{
+  border-radius:70%;
+  outline-style:solid;
+  outline-color:rgb(226, 109, 164);
+  outline-width:0.2rem;
+  height:8rem;
+  width:8rem;
+}
+
+.name-picker{
+  margin-top:3.6rem;
+}
+
+.name-picker svg{
+  margin-left:0.5rem;
+}
+
+.user-bio{
+  width:30rem;
+  margin-top:1.7rem;
+  outline-style:solid;
+  outline-color:rgb(85, 59, 40);
+  outline-width:0.15rem;
+  font-size:1rem;
+  background-color: #fdd7dd;
+  font-family: 'Ubuntu', sans-serif;
+  padding:1rem;
+}
+
+.user-bio svg{
+  margin-left:0.5rem;
+}
+
+.users-posts{
+  margin-top:1.6rem;
 }
