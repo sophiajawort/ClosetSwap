@@ -4,12 +4,11 @@ import React from 'react';
 import FileUpload from './FileUpload.js'
 
 export default function ProfilePicture(props){
-  const [image, setImage] = useState(null);
   const [showInput, setShowInput] = useState(false);
 
   /* Updating image to be the chosen file */
-
-  console.log("Image: ", image);
+  const image = props.src
+  // console.log("Image: ", image);
   /* Want camera to display if haven't taken a picture, picture if they have */
   /* showInput true, show picture */
   if(showInput){

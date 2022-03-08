@@ -6,7 +6,6 @@ import HomePage from "./HomePage.js";
 import ProfilePage from "./ProfilePage.js";
 import FriendsPage from "./FriendsPage.js";
 import ProfileSettings from "./ProfileSettings.js"
-import CartPage from "./CartPage.js";
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 
 export default function Router() {

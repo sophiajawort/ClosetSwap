@@ -47,11 +47,11 @@ function useDB(user) {
 }
 
 const db = {};
-db.send = async function (post) {
-  return addDoc(collection(store, collection_name), post);
+db.send = async function (newUser) {
+  return addDoc(collection(store, collection_name), newUser);
 };
-db.edit = async function (id, post) {
-  return setDoc(doc(store, collection_name, id), post);
+db.edit = async function (id, newUser) {
+  return setDoc(doc(store, collection_name, id), newUser);
 };
 db.delete = async function (id) {
   return deleteDoc(doc(store, collection_name, id));
@@ -71,3 +71,5 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 store = getFirestore(app);
+
+

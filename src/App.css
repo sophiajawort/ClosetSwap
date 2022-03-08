@@ -67,7 +67,7 @@ p{
 }
 
 .footer{
-    height:4rem;
+    height:5rem;
     display:flex;
     flex-direction:row;
     justify-content: space-evenly;
@@ -142,4 +142,24 @@ button:hover svg{
 
 .users-posts{
   margin-top:1.6rem;
+}
+
+.profile-settings{
+  margin-left:22.5rem;
+  height:24rem;
+  width:30rem;
+  outline: solid 0.175rem rgb(85, 59, 40);
+  padding:2rem;
+  background-color:#fdd7dd;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:1.3rem;
+}
+
+.submit-info-btn{
+  font-family: 'Ubuntu', sans-serif;
+  height:7rem;
+  width:9rem;
+  border-radius:50%;
 }
