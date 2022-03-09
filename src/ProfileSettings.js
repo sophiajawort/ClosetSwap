@@ -5,14 +5,14 @@ import FooterMenu from "./FooterMenu.jsx";
 import NamePicker from "./NamePicker.js";
 import UserBio from "./UserBio.js"
 import { useState } from "react";
-import { getStorage, ref } from "firebase/storage";
-import { collection, addDoc } from "firebase/firestore";
-import db from "./database";
+import { doc, getDoc } from "firebase/firestore";
+import db from "./firestore.js";
 
 export default function ProfileSettings(){
-  const storage = getStorage();
+/*
   const [image, setImage] = useState();
   let [bio, setBio] = useState()
+
 
   // Create User when user presses confirm for their profile info
   const createUser = async (username) => {
@@ -40,9 +40,8 @@ export default function ProfileSettings(){
       <HeaderNonHome/>
       <div className="profile-settings">
         <ProfilePicture/>
-        {/* User name  */}
+        {/* User name
         <NamePicker />
-        {/* User Bio */}
         < UserBio setBio = {setBio}/>
         <button onClick={createUser} className='submit-info-btn'>
             Submit Profile Info
@@ -51,4 +50,4 @@ export default function ProfileSettings(){
         <FooterMenu/>
       </div>
     );
-}
+  */}

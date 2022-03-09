@@ -5,25 +5,62 @@ import { getDroppedOrSelectedFiles } from 'html5-file-selector'
 import FileUploadCSS from './FileUpload.css'
 import ProfilePicture from './ProfilePicture'
 import {useState} from "react";
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 const FileUploadComponent = () => {
     const [showDropzone, setShowDropzone] = useState(true);
-    const [image, setImage] = useState();
+    const [image, setImage] = useState(null);
+    const [url, setUrl] = useState("");
+
+    const storage = getStorage();
+    const storageRef = ref(storage, 'images');
+
     const fileParams = ({ meta }) => {
         return { url: 'https://httpbin.org/post' }
     }
-    const onFileChange = ({ meta, file }, status, e) => {
+    const onFileChange = ({ meta, file }, status) => {
         console.log(status, meta, file)
-        setImage(meta.previewUrl)
-    }
+        setImage(file)
+        console.log("image:", image)
+    };
+
 
     const onSubmit = (files, allFiles) => {
         console.log("image in fileUpload:", image)
+        const imageRef = ref(storage, url);
         setShowDropzone(false)
         if (showDropzone === false)return(
-            < ProfilePicture src={image} />
+            < ProfilePicture src={image.name} />
         )
     }
+
+/*
+    const onSubmit = () => {
+        console.log("onSubmitBItch")
+        const uploadTask = storage.ref(`images/${image.name}`).put(image);
+        uploadTask.on(
+          "state_changed",
+          snapshot => {
+            const progress = Math.round(
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            );
+          },
+          error => {
+            console.log(error);
+          },
+          () => {
+            storage
+              .ref("images")
+              .child(image.name)
+              .getDownloadURL()
+              .then(url => {
+                setUrl(url);
+              });
+          }
+        );
+      };
+    */
+
     const getFilesFromEvent = e => {
         return new Promise(resolve => {
             getDroppedOrSelectedFiles(e).then(chosenFiles => {
@@ -70,7 +107,7 @@ const FileUploadComponent = () => {
         );
     }else{
         return(
-            <img className="profile-pic" src={image}/>
+            <img className="profile-pic" src={url}/>
         );
     }
 };

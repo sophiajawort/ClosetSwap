@@ -5,17 +5,41 @@ import HeaderNonHome from "./HeaderNonHome.js";
 import ProfilePicture from "./ProfilePicture.js";
 import NamePicker from "./NamePicker.js";
 import UserBio from "./UserBio.js"
-import { useDB, db } from "./firebase.js"
+import db from "./firestore.js"
 import { useParams, useNavigate } from "react-router-dom";
 import { BsGear } from "react-icons/bs";
-import { getStorage, ref } from "firebase/storage";
+import { doc, getDoc } from "firebase/firestore";
+import {useState, useEffect} from "react";
 
 
 export default function ProfilePage(){
   const params = useParams();
   const navigate = useNavigate();
-  const user = params.user || "home";
-  const posts = useDB(user);
+  const [user, setUser] = useState()
+  const[profilePic, setPic] = useState("")
+  const[username, setUsername]=useState("")
+  const[bio, setBio] = useState("")
+  const[posts, setPosts] = useState([])
+
+  /* Getting main user data to build up profile page */
+  useEffect( async () => {
+    const docRef = doc(db, "users", "main-user");
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      console.log("Document data:", docSnap.data());
+      setUser(docSnap.data())
+      setPic(user.picture)
+      setUsername(user.username)
+      setBio(user.bio)
+      setPosts(user.posts)
+    } else {
+      // doc.data() will be undefined in this case
+      console.log("No such document!");
+    }
+    console.log(profilePic)
+    console.log("posts: ", posts)
+  }
+  )
 
     return(
         <div className="App">
@@ -27,23 +51,31 @@ export default function ProfilePage(){
           </head>
           {/* Creating Header with button to navigate home */}
           <HeaderNonHome />
+          {/*<button className='create-new-post-button' onClick={() => navigate('/create-post')}>
+            Create Post
+          </button>*/}
           { /* Profile information will contain a profile picture, name, description, and posts */}
           <body className = 'main-body'>
             {/* Button to navigate to change profile info */}
-            <button className='profile-settings' onClick={() => navigate('/profile-settings')}>
-              < BsGear />
-            </button>
             <div className="profile-information">
               {/* profile pic */}
-              < ProfilePicture />
+              < img className='profile-pic' src={profilePic}/>
               {/* User name  */}
-              <NamePicker/>
-            </div>
+              <div className="username"/>
+                {username}
+              </div>
             {/* User Bio */}
-            < UserBio />
+            < div className='user-bio'>
+              {bio}
+            </div>
             <div className='users-posts'>
-              Current Items:
-              Need to figure out how to use databases to add postssss
+              Posts:
+              {posts.map((post) => {
+                console.log(post)
+                return (
+                 <img className="post" src={post} />
+                );
+              })}
             </div>
           </body>
           <FooterMenu />

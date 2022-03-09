@@ -12,6 +12,7 @@ function UserBio(props) {
   // you clicked ok!
   function ok() {
     props.setBio(bio);
+    console.log("bio", bio)
     setShowInput(false);
   }
 

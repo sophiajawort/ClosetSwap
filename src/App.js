@@ -5,7 +5,6 @@ import FooterMenu from "./FooterMenu.jsx";
 import HomePage from "./HomePage.js";
 import ProfilePage from "./ProfilePage.js";
 import FriendsPage from "./FriendsPage.js";
-import ProfileSettings from "./ProfileSettings.js"
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 
 export default function Router() {
@@ -15,7 +14,7 @@ export default function Router() {
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/profile-settings" element={<ProfileSettings/>} />
+        {/*<Route path='/create-post' element={<CreateNewPost />} />*/}
         <Route path="/friends" element={<FriendsPage />} />
         <Route path="/:user" element={<App />} />
       </Routes>

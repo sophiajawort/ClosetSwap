@@ -55,7 +55,6 @@ html {
   flex-direction:column;
   align-items:flex-start;
   justify-content:flex-start;
-  height:30rem;
   margin-left:4rem;
 }
 
@@ -155,6 +154,12 @@ button:hover svg{
   flex-direction:column;
   align-items:center;
   gap:1.3rem;
+}
+
+.profile-settings-button{
+  height:3rem;
+  width:3rem;
+  border-radius:70%;
 }
 
 .submit-info-btn{
