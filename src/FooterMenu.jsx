@@ -1,5 +1,5 @@
 import React from "react";
-import { BsFillPersonFill, BsFillPeopleFill, BsBasketFill } from "react-icons/bs";
+import { BsFillPersonFill, BsFillPeopleFill, BsArrowLeftRight } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
 
 
@@ -16,8 +16,8 @@ function FooterMenu(){
           <BsFillPersonFill />
         </button>
         <button className="go-to-cart"
-        onClick={() => navigate('/cart')}>
-          <BsBasketFill />
+        onClick={() => navigate('/trades')}>
+          <BsArrowLeftRight />
         </button>
       </footer>
     )

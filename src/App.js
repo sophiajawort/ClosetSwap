@@ -7,6 +7,8 @@ import ProfilePage from "./ProfilePage.js";
 import FriendsPage from "./FriendsPage.js";
 import User2 from "./user2.js";
 import User3 from "./User3.js";
+import Trades from "./Trades.js";
+import TradeProposal from './TradeProposal.js';
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 
 export default function Router() {
@@ -20,6 +22,8 @@ export default function Router() {
         <Route path="/friends" element={<FriendsPage />} />
         <Route path="/user2" element={< User2 />} />
         <Route path="/user3" element={< User3 />} />
+        <Route path="/trades" element={<Trades />} />
+        <Route path='/trade-proposal' element={<TradeProposal />} />
       </Routes>
     </BrowserRouter>
   );

@@ -10,6 +10,7 @@ import {useState, useEffect} from "react";
 function HomePage(){
     const [posts, setPosts] = useState([])
     const [user, setUser] = useState()
+    const navigate = useNavigate();
     useEffect( async () => {
         const docRef = doc(db, "users", "home-page");
         const docSnap = await getDoc(docRef);
@@ -36,7 +37,7 @@ function HomePage(){
                 {posts.map((post) => {
                 console.log(post)
                 return (
-                 <img className="post" src={post} />
+                 <img className="post" src={post} onClick={() => navigate('/trade-proposal')} />
                 );
               })}
             </div>
