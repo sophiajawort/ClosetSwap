@@ -2,19 +2,13 @@ import React from "react";
 import './App.css';
 import FooterMenu from "./FooterMenu.jsx";
 import HeaderNonHome from "./HeaderNonHome.js";
-import ProfilePicture from "./ProfilePicture.js";
-import NamePicker from "./NamePicker.js";
-import UserBio from "./UserBio.js"
 import db from "./firestore.js"
 import { useParams, useNavigate } from "react-router-dom";
-import { BsGear } from "react-icons/bs";
 import { doc, getDoc } from "firebase/firestore";
 import {useState, useEffect} from "react";
 
 
-export default function ProfilePage(){
-  const params = useParams();
-  const navigate = useNavigate();
+export default function User3(){
   const [user, setUser] = useState()
   const[profilePic, setPic] = useState("")
   const[username, setUsername]=useState("")
@@ -23,7 +17,7 @@ export default function ProfilePage(){
 
   /* Getting main user data to build up profile page */
   useEffect( async () => {
-    const docRef = doc(db, "users", "main-user");
+    const docRef = doc(db, "users", "user3");
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       console.log("Document data:", docSnap.data());
@@ -65,7 +59,6 @@ export default function ProfilePage(){
                 {username}
               </div>
             {/* User Bio */}
-            <p>Bio:</p>
             < div className='user-bio'>
               {bio}
             </div>
