@@ -20,8 +20,8 @@ export default function Router() {
         <Route path="/profile" element={<ProfilePage />} />
         {/*<Route path='/create-post' element={<CreateNewPost />} />*/}
         <Route path="/friends" element={<FriendsPage />} />
-        <Route path="/user2" element={< User2 />} />
-        <Route path="/user3" element={< User3 />} />
+        <Route path="/shoefiend60809" element={< User2 />} />
+        <Route path="/tswizzle" element={< User3 />} />
         <Route path="/trades" element={<Trades />} />
         <Route path='/trade-proposal' element={<TradeProposal />} />
       </Routes>

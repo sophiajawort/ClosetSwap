@@ -10,17 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function FriendsPage(){
   const navigate = useNavigate();
-  const[docs, setDocs] = useState([]);
-  const [value, setValue] = useState('');
-  const q = query(collection(db, "users"), where("not-main", "==", true));
-  useEffect( async () => {
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      let user = doc.data()
-      setDocs((docs) => [...docs, user])
-    });
-  }
-  )
+
     return(
       <div className="App">
         {/* Importing google fonts */}
@@ -31,13 +21,15 @@ export default function FriendsPage(){
         </head>
         <HeaderNonHome />
         <div className='list-users'>
-          {docs.map((doc) => {
-            console.log('current doc', doc)
-            return(
-              <img className='profile-picture' src={doc.picture}
-              onClick={() => navigate('/user2')} />
-            )
-          })}
+          <p>Your Friends: </p>
+          <div className='user' onClick={() => navigate('/shoefiend60809')}>
+            <img className='profile-pic' src ='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png' />
+            <p>shoefiend60809</p>
+          </div>
+          <div className='user' onClick={() => navigate('/tswizzle')}>
+            <img className='profile-pic' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqZTr4JtnxsCCMw0_XsvMmf3qztHxnKPas5Q&usqp=CAU' />
+            <p>tswizzle</p>
+          </div>
         </div>
         <FooterMenu />
       </ div>

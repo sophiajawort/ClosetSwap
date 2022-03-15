@@ -191,6 +191,14 @@ button:hover svg{
   box-shadow: 0 0 1.5rem rgba(85, 59, 40, 0.637);
 }
 
+.post-clicked{
+  transition: box-shadow .3s;
+  height:10rem;
+  width:10rem;
+  border-radius:1rem;
+  outline: solid hotpink 0.3rem;
+}
+
 .trade-body{
     display:flex;
     flex-direction:column;
@@ -199,8 +207,6 @@ button:hover svg{
     justify-content:flex-start;
     margin-left:4rem;
 }
-
-
 
 .trade{
   display:flex;
@@ -233,4 +239,44 @@ button:hover svg{
 .btn-container button{
   width:5rem;
   height:2rem;
+}
+
+.main-body-proposal{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:space-evenly;
+  margin-left:4rem;
+}
+
+.propose-trade-btn{
+  height:10rem;
+  width:10rem;
+  border-radius:40%;
+}
+
+.user-post-trade{
+  height:10rem;
+  width:40rem;
+  display:flex;
+  justify-content:flex-start;
+  flex-direction:row;
+  align-items:center;
+  gap:3rem;
+}
+
+.list-users{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+  margin-left:3rem;
+  gap:2rem;
+}
+
+.user{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-evenly;
+  align-items:center;
 }

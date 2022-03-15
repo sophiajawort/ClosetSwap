@@ -59,11 +59,12 @@ export default function User2(){
                 {username}
               </div>
             {/* User Bio */}
+            <p>Bio:</p>
             < div className='user-bio'>
               {bio}
             </div>
-            <div className='users-posts'>
-              Posts:
+            <p>Posts:</p>
+            <div className='user-posts'>
               {posts.map((post) => {
                 console.log(post)
                 return (
