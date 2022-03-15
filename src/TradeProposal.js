@@ -3,15 +3,42 @@ import './App.css';
 import FooterMenu from "./FooterMenu.jsx";
 import HeaderNonHome from "./HeaderNonHome.js";
 import {useState} from "react";
+import { useNavigate } from 'react-router-dom';
 
 export default function TradeProposal(){
     const [showButton, setShowButton] = useState(false)
+    const[buttonClicked, setButtonClicked] = useState(false)
     const [style, setStyle] = useState("post");
+    const navigate = useNavigate();
 
     function postClicked(){
         setStyle('post-clicked')
         setShowButton(true)
     }
+
+    function buttonClickedFunc(){
+      setButtonClicked(true)
+    }
+
+    if(buttonClicked){
+      return(
+        <div className='App'>
+          <head>
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+            <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Ubuntu:wght@300;400&display=swap" rel="stylesheet" />
+          </head>
+
+          <HeaderNonHome />
+          <div className='main-body'>
+            <p>Your Trade has been proposed! Wait for Tswizzle to approve your trade.</p>
+            <button className='back-home' onClick={() => navigate('/')}>Find more clothes</button>
+          </div>
+          <FooterMenu />
+        </div>
+      )
+    }
+
     if(showButton){
         return(
         <div className='App'>
@@ -38,7 +65,7 @@ export default function TradeProposal(){
                     </div>
                 </div>
                </div>
-                <button className='propose-trade-btn'>Propose Trade</button>
+                <button className='propose-trade-btn' onClick={buttonClickedFunc}>Propose Trade</button>
             </div>
             <FooterMenu />
         </div>

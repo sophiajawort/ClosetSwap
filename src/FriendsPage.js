@@ -7,6 +7,7 @@ import { collection, query, where, getDocs, limit, orderBy } from "firebase/fire
 import { doc, getDoc } from "firebase/firestore";
 import {useState, useEffect} from "react";
 import { useNavigate } from 'react-router-dom';
+import { BsFillPersonPlusFill } from "react-icons/bs";
 
 export default function FriendsPage(){
   const navigate = useNavigate();
@@ -21,7 +22,12 @@ export default function FriendsPage(){
         </head>
         <HeaderNonHome />
         <div className='list-users'>
-          <p>Your Friends: </p>
+          <div className='friend-header'>
+            <p>Your Friends:</p>
+            <button>
+              <BsFillPersonPlusFill />
+            </button>
+          </div>
           <div className='user' onClick={() => navigate('/shoefiend60809')}>
             <img className='profile-pic' src ='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png' />
             <p>shoefiend60809</p>
