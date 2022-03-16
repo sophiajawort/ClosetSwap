@@ -57,6 +57,7 @@ html {
   justify-content:flex-start;
   gap:1.2rem;
   margin-left:4rem;
+  background:#fdd7dd;
 }
 
 p{
@@ -179,6 +180,7 @@ button:hover svg{
   flex-direction:row;
   align-items:center;
   gap:3rem;
+  background:#fdd7dd;
 }
 
 .post{

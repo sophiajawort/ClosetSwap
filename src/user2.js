@@ -49,7 +49,7 @@ export default function User2(){
             Create Post
           </button>*/}
           { /* Profile information will contain a profile picture, name, description, and posts */}
-          <body className = 'main-body'>
+          <div className = 'main-body'>
             {/* Button to navigate to change profile info */}
             <div className="profile-information">
               {/* profile pic */}
@@ -72,7 +72,7 @@ export default function User2(){
                 );
               })}
             </div>
-          </body>
+          </div>
           <FooterMenu />
         </div>
     )
